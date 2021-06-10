@@ -28,15 +28,18 @@ class _DetailsPageState extends State<DetailsPage> {
           Stack(
             alignment: Alignment.topCenter,
             children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.55 + 32,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(widget.place['image']),
-                    fit: BoxFit.cover,
-                    colorFilter: ColorFilter.mode(
-                      Colors.red.withOpacity(0.15),
-                      BlendMode.lighten,
+              Hero(
+                tag: 'photo-${widget.place['image']}',
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.55 + 32,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(widget.place['image']),
+                      fit: BoxFit.cover,
+                      colorFilter: ColorFilter.mode(
+                        Colors.red.withOpacity(0.15),
+                        BlendMode.lighten,
+                      ),
                     ),
                   ),
                 ),
@@ -47,20 +50,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   children: [
                     Text(
                       widget.place['name'],
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30,
-                        fontFamily: 'Mulish',
-                        fontWeight: FontWeight.w600,
-                        shadows: [
-                          BoxShadow(
-                            color: Colors.black,
-                            blurRadius: 20,
-                            spreadRadius: 2,
-                            offset: Offset(00, 0),
-                          )
-                        ],
-                      ),
+                      style: Theme.of(context).textTheme.subtitle1,
                     )
                   ],
                 ),

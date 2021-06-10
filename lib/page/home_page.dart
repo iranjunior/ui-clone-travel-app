@@ -174,31 +174,34 @@ class _HomePageState extends State<HomePage> {
                             ),
                             child: Stack(
                               children: [
-                                Container(
-                                  height: 360,
-                                  width: 360 * 0.85,
-                                  margin: EdgeInsets.only(
-                                      left: index == 0 ? 16 : 8, right: 8),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(40),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            _listPlaces[index]['image']),
-                                        fit: BoxFit.cover,
-                                        colorFilter: ColorFilter.mode(
-                                          Colors.red.withOpacity(0.15),
-                                          BlendMode.lighten,
+                                Hero(
+                                  tag: 'photo-${_listPlaces[index]['image']}',
+                                  child: Container(
+                                    height: 360,
+                                    width: 360 * 0.85,
+                                    margin: EdgeInsets.only(
+                                        left: index == 0 ? 16 : 8, right: 8),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(40),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              _listPlaces[index]['image']),
+                                          fit: BoxFit.cover,
+                                          colorFilter: ColorFilter.mode(
+                                            Colors.red.withOpacity(0.15),
+                                            BlendMode.lighten,
+                                          ),
                                         ),
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Theme.of(context)
-                                                .primaryColor
-                                                .withOpacity(0.2),
-                                            blurRadius: 20,
-                                            spreadRadius: 2,
-                                            offset: Offset(10, 10))
-                                      ]),
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Theme.of(context)
+                                                  .primaryColor
+                                                  .withOpacity(0.2),
+                                              blurRadius: 20,
+                                              spreadRadius: 2,
+                                              offset: Offset(10, 10))
+                                        ]),
+                                  ),
                                 ),
                                 Positioned(
                                   width: 200,
@@ -206,20 +209,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Text(
                                         _listPlaces[index]['name'],
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 30,
-                                          fontFamily: 'Mulish',
-                                          fontWeight: FontWeight.w600,
-                                          shadows: [
-                                            BoxShadow(
-                                              color: Colors.black,
-                                              blurRadius: 20,
-                                              spreadRadius: 2,
-                                              offset: Offset(00, 0),
-                                            )
-                                          ],
-                                        ),
+                                        style: Theme.of(context).textTheme.subtitle1,
                                       )
                                     ],
                                   ),

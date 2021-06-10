@@ -58,6 +58,20 @@ class EntryApp extends StatelessWidget {
             color: Colors.white70,
             fontSize: 18,
           ),
+          subtitle1: TextStyle(
+            color: Colors.white,
+            fontSize: 30,
+            fontFamily: 'Mulish',
+            fontWeight: FontWeight.w600,
+            shadows: [
+              BoxShadow(
+                color: Colors.black,
+                blurRadius: 20,
+                spreadRadius: 2,
+                offset: Offset(00, 0),
+              )
+            ],
+          ),
         ),
       ),
       home: HomePage(),
